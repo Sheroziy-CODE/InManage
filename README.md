@@ -28,4 +28,4 @@ The following instructions are needed for you to set up it locally
 1. Contains 3 pages: Login, Manage Employees and Profile Page
 2. Built by using HTML, CSS and JS (only in one place) with Django framework, used SQLite3. 
 3. Login Page is rendered by client-side and the rest pages are server-side rendered
-4. Deployed by benefiting from render.com
+4. Deployed by benefiting from render.com: https://inmanage.onrender.com
