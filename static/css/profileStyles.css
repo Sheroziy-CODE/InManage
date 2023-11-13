@@ -1,0 +1,93 @@
+.profile-container {
+    background: #fff;
+    margin: 50px;
+    padding: 50px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    background: #ccc;
+    width: 150px;
+    height: 150px;
+    border-radius: 25%;
+    margin-right: 20px;
+}  
+
+.avatar-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 25%;
+}
+
+.profile-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.profile-info h1 {
+    margin: 0;
+    flex-grow: 1;
+}
+
+#editProfile {
+    margin-top: 0;
+    margin-left: auto;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#editProfile:hover {
+    background-color: #555;
+}
+
+.profile-form {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row label {
+    margin-bottom: 5px;
+}
+
+.form-row input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#confirmEdit {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#confirmEdit:hover {
+    background-color: #67C267;
+}

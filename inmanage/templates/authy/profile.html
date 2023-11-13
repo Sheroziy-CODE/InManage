@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main class="profile-container">
+    <div class="profile-header">
+        <div class="avatar">
+            {% if request.user.profile.picture %}
+            <img class="avatar-img" style="width: 100px; height: 100px; border-radius: 25%;" src="{% if request.is_secure %}https{% else %}http{% endif %}://{{request.META.HTTP_HOST}}{{ request.user.profile.picture.url }}" alt="Profile Picture">
+            {% endif %}
+        </div>
+        <div class="profile-info">
+            {% if request.user.profile.first_name %}
+            <h1>{{ request.user.profile.first_name }} {{ request.user.profile.last_name }}</h1>
+            {% else %}
+            <h1>{{ request.user.username }}</h1>
+            {% endif %}
+            <button id="editProfile" onclick="enableForm()">Edit</button>
+        </div>
+    </div>
+
+    <form id="profileForm" class="profile-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-row">
+            <label for="id_picture">Picture</label>
+            <input type="file" id="id_picture" name="picture" accept="image/*" disabled>
+        </div>
+        <div class="form-row">
+            <label for="id_first_name">First Name</label>
+            <input type="text" id="id_first_name" name="first_name" value="{{ form.first_name.value }}" disabled>
+        </div>
+        <div class="form-row">
+            <label for="id_last_name">Last Name</label>
+            <input type="text" id="id_last_name" name="last_name" value="{{ form.last_name.value }}" disabled>
+        </div>
+        <div class="form-row">
+            <label for="id_city">City</label>
+            <input type="text" id="id_city" name="city" value="{{ form.city.value }}" disabled>
+        </div>
+        <div class="form-row">
+            <label for="id_plz">PLZ</label>
+            <input type="text" id="id_plz" name="plz" value="{{ form.plz.value }}" disabled>
+        </div>
+        <div class="form-row">
+            <label for="id_adress">Address</label>
+            <input type="text" id="id_adress" name="adress" value="{{ form.adress.value }}" disabled>
+        </div>
+        <div class="form-row">
+            <label for="id_bio">Bio</label>
+            <textarea id="id_bio" name="bio" disabled>{{ form.bio.value }}</textarea>
+        </div>
+        <button type="submit" id="confirmEdit" style="display: none;">Confirm</button>
+    </form>
+</main>
+
+<script>
+    function enableForm() {
+        document.querySelectorAll('#profileForm input').forEach(input => input.disabled = false);
+        document.querySelectorAll('#profileForm textarea').forEach(input => input.disabled = false);
+
+        document.getElementById('confirmEdit').style.display = 'block';
+    }
+</script>
+{% endblock %}

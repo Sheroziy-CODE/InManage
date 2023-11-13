@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head style="background-color: rgb(41, 30, 61) !important;">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="Content-Security-Policy: default-src 'self' *.googleapis.com">
+    <title>Inmanage</title>
+    <link rel="stylesheet" href="{% static 'css/profileStyles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mitarbeiterStyles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <main>
+        {% block content%}
+    </main>
+    {% endblock %}
+</body>
+
+</html>
