@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main class="mitarbeiter-container">
+    <h1>Arbeitskräfte</h1>
+
+    <div class="search-container">
+        <form method="GET">
+            {% csrf_token %}
+            <input type="text" name="search" value="{{ request.GET.search }}" placeholder="Search by Username">
+        </form>
+        <!-- <input type="text" placeholder=""> -->
+        <button class="add-staff" id="addStaff">+ Add Staff Member</button>
+    </div>
+
+    <div class="staff-grid">
+        {% for user in users %}
+        <div class="staff-card">
+            <div class="avatar">
+                {% if user.profile.picture %}
+                <img class="avatar-img" style="width: 100px; height: 100px; border-radius: 25%;"
+                    src="{{ user.profile.picture.url }}" alt="Profile Picture">
+                {% else %}
+                <img class="avatar-img" style="width: 100px; height: 100px; border-radius: 25%;"
+                    src="{% static 'icons/profile.png' %}" alt="Profile Picture">
+                {% endif %}
+            </div>
+            <div class="staff-info">
+                <h2>{{ user.username }}</h2>
+
+                <p>User Groups</p>
+                <div class="groups">
+                    {% for group in user.groups.all %}
+                    <span>{{group}}</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</main>
+
+<div class="modal" id="addStaffModal">
+    <div class="modal-content">
+        <span class="close-button" id="closeModal">&times;</span>
+        <h2>Add Staff Member</h2>
+        <form id="userCreationForm" class="profile-form" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <label for="id_username">Username</label>
+                <input type="text" id="id_username" name="username" required>
+            </div>
+            <div class="form-row">
+                <label for="id_email">Email</label>
+                <input type="email" id="id_email" name="email" required>
+            </div>
+            <div class="form-row">
+                <label for="id_groups">Groups</label>
+                <select id="id_groups" name="groups" multiple>
+                    {% for group in groups %}
+                    <option value="{{ group.id }}">{{ group.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-row">
+            </div>
+            <button type="submit" id="confirmEdit">Add member</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.querySelector('.add-staff').addEventListener('click', function () {
+    });
+
+    document.getElementById('addStaff').addEventListener('click', function () {
+        document.getElementById('addStaffModal').style.display = 'block';
+    });
+
+    document.getElementById('closeModal').addEventListener('click', function () {
+        document.getElementById('addStaffModal').style.display = 'none';
+    });
+
+    document.getElementById('addStaffForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        document.getElementById('addStaffModal').style.display = 'none';
+    });
+
+    window.onclick = function (event) {
+        const modal = document.getElementById('addStaffModal');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+</script>
+{% endblock %}
