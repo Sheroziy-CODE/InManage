@@ -17,6 +17,7 @@ The following instructions are needed for you to set up it locally
 3. Run setup.sh that will install needed dependencies and configure
 4. Run server: python manage.py runserver
 5. Open Web Client
+6. Credentials to use: Benutzername = admin, Password = admin
 
 
 ## Infrastructure
