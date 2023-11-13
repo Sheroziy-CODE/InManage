@@ -4,8 +4,15 @@
 - install python 
 - install pip
 - install virtualenv
-- make a virtualenv (python venv -m env)
-- activate it virtualenv (source env/bin/activate)
+- make a virtualenv
+- activate it virtualenv
+
+
 - ./setup.sh
-- python3 manage.py runserver
-- 
+
+1. Removed static
+2. Removed templates
+3. Clear views in authy and forms
+4. Clear urls list
+5. removes     # own apps 'authy' from settings.py
+6. Remove inital_data, setup.sh, and update_passwords.py
