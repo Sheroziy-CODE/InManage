@@ -1,0 +1,124 @@
+[
+    {
+        "model": "auth.group",
+        "pk": 1,
+        "fields": {
+            "name": "waiter"
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 2,
+        "fields": {
+            "name": "bar"
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 3,
+        "fields": {
+            "name": "manager"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "username": "admin",
+            "is_superuser": true,
+            "password": "admin",
+            "is_staff": true,
+            "groups": []
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "username": "manager",
+            "is_superuser": false,
+            "is_staff": true,
+            "groups": [3]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+            "username": "user1",
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [1]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+            "username": "user2",
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [1]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+            "username": "user3",
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [2]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+            "username": "user4",
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [2]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+            "username": "user5",
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [1]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+            "username": "user6",
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [1]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 9,
+        "fields": {
+            "username": "user7",
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [2]
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 10,
+        "fields": {
+            "username": "user8",
+            "is_superuser": false,
+            "is_staff": false,
+            "groups": [2]
+        }
+    }
+]
