@@ -2,6 +2,9 @@
 
 InManage is employees management page for restaurant managers.
 
+![](InManage.gif)
+
+
 ## Getting Started
 The following instructions are needed for you to set up it locally
 
